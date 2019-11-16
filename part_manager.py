@@ -47,5 +47,19 @@ price_entry = Entry(app, textvariable=price_text)
 price_entry.grid(row=1, column=3)
 
 
+# Parts List (Listbox)
+parts_list = Listbox(app, height=8, width=50, border=0)
+parts_list.grid(row=3, column=0, columnspan=3, rowspan=6, pady=20, padx=20)
+
+
+# Scrollbar
+scrollbar = Scrollbar(app)
+scrollbar.grid(row=3, column=3)
+
+
+# Set Scrollbar to Listbox
+parts_list.configure(yscrollcommand=scrollbar.set)
+scrollbar.configure(command=parts_list.yview)
+
 # Start program
 app.mainloop()
