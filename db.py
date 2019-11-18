@@ -17,7 +17,7 @@ class Database:
         return rows
     
 
-    def inset(self, part, customer, retailer, price):
+    def insert(self, part, customer, retailer, price):
         self.cur.execute("INSERT INTO parts VALUES(NULL, ?, ?, ?, ?)", (part, customer, retailer, price))
         self.conn.commit()
     
@@ -30,3 +30,6 @@ class Database:
     def update(self, id, part, customer, retailer, price):
         self.cur.execute("UPDATE parts SET part = ?, customer = ?, retailer = ?, price = ? WHERE id = ?", (part, customer, retailer, price))
         self.conn.commit()
+    
+
+    
