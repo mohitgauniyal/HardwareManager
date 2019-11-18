@@ -32,4 +32,5 @@ class Database:
         self.conn.commit()
     
 
-    
+    def __del__(self):
+        self.conn.close()
