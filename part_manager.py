@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from db import Database
 
 
@@ -12,6 +13,10 @@ def populate_list():
 
 
 def add_item():
+    if part_text.get() == '' or customer_text.get() == '' or retailer_text.get() == '' or price_text.get() == '' :
+        messagebox.showerror("Required Fields", 'Please include all fields')
+        return
+
     db.insert(part_text.get(), customer_text.get(), retailer_text.get(), price_text.get())
     parts_list.delete(0, END)
     parts_list.insert(END, (part_text.get(), customer_text.get(), retailer_text.get(), price_text.get()))
