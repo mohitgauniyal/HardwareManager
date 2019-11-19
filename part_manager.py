@@ -23,6 +23,10 @@ def add_item():
     populate_list()
 
 
+def select_item(event):
+    print('select')
+
+
 def remove_item():
     print('Remove')
 
@@ -96,6 +100,10 @@ scrollbar.grid(row=3, column=3)
 # Set Scrollbar to Listbox
 parts_list.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=parts_list.yview)
+
+
+# Bind select
+parts_list.bind('<<ListboxSelect>>', select_item)
 
 
 # Buttons
