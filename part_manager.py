@@ -1,8 +1,13 @@
 from tkinter import *
+from db import Database
+
+
+db = Database('store.db')
 
 
 def populate_list():
-    print('Populate')
+    for row in db.fetch():
+        parts_list.insert(END, row)
 
 
 def add_item():
@@ -99,6 +104,9 @@ update_btn.grid(row=2, column=2)
 
 clear_btn = Button(app, text='Clear Input', width=12, command=clear_text)
 clear_btn.grid(row=2, column=3)
+
+
+populate_list()
 
 
 # Start program
