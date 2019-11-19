@@ -6,12 +6,16 @@ db = Database('store.db')
 
 
 def populate_list():
+    parts_list.delete(0, END)
     for row in db.fetch():
         parts_list.insert(END, row)
 
 
 def add_item():
-    print('Add')
+    db.insert(part_text.get(), customer_text.get(), retailer_text.get(), price_text.get())
+    parts_list.delete(0, END)
+    parts_list.insert(END, (part_text.get(), customer_text.get(), retailer_text.get(), price_text.get()))
+    populate_list()
 
 
 def remove_item():
@@ -106,6 +110,7 @@ clear_btn = Button(app, text='Clear Input', width=12, command=clear_text)
 clear_btn.grid(row=2, column=3)
 
 
+# Populate data
 populate_list()
 
 
