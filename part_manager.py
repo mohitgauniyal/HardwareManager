@@ -20,6 +20,8 @@ def add_item():
     db.insert(part_text.get(), customer_text.get(), retailer_text.get(), price_text.get())
     parts_list.delete(0, END)
     parts_list.insert(END, (part_text.get(), customer_text.get(), retailer_text.get(), price_text.get()))
+    
+    clear_text()
     populate_list()
 
 
@@ -40,6 +42,7 @@ def select_item(event):
 
 def remove_item():
     db.remove(selected_item[0])
+    clear_text()
     populate_list()
 
 
@@ -48,9 +51,10 @@ def update_item():
 
 
 def clear_text():
-    print('Clear')
-
-
+    part_entry.delete(0, END)
+    customer_entry.delete(0, END)
+    retailer_entry.delete(0, END)
+    price_entry.delete(0, END)
 
 
 # Create window object
