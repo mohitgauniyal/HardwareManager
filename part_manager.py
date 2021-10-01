@@ -39,8 +39,8 @@ def select_item(event):
         retailer_entry.insert(END, selected_item[3])
         price_entry.delete(0, END)
         price_entry.insert(END, selected_item[4])
-    except IndexError:
-        print('Index Error occured')    
+    except IndexError as msg:
+        print(msg)    
 
 def remove_item():
     db.remove(selected_item[0])
